@@ -3,3 +3,8 @@
 .RData
 .Ruserdata
 .DS_Store
+osx/RAVE Bundled Installer/build/RAVE Bundled Installer.build
+osx/RAVE Bundled Installer/build/Release
+osx/RAVE Bundled Installer/build/XCBuildData
+osx/RAVE Bundled Installer/build/rave-bundled-installer-*-backup.pkg
+
