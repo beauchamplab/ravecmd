@@ -44,21 +44,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2BF46FBC256A25AF0009BD32"
-            BuildableName = "RAVE Demo Data"
-            BlueprintName = "RAVE Demo Data"
-            ReferencedContainer = "container:RAVE Bundled Installer.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
             BlueprintIdentifier = "2BF46F8F256A10FA0009BD32"
             BuildableName = "RAVE Bundled Installer"
             BlueprintName = "RAVE Bundled Installer"
             ReferencedContainer = "container:RAVE Bundled Installer.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

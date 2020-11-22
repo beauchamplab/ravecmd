@@ -119,9 +119,21 @@ class Shell {
     
     func exec_r(_ command : String,
                 _ binary : String = "/usr/local/bin/Rscript",
-                _ args : Array<String> = ["--no-save", "--no-restore", "--no-site-file" , "--no-init-file"]) -> (String?, String?) {
+                _ args : Array<String> = ["--no-save", "--no-restore", "--no-site-file" , "--no-init-file"],
+                is_from_file is_file : Bool = false,
+                as_sudo : Bool = false) -> (String?, String?) {
         
-        return exec(binary, args + ["-e", command])
+        var script_arg = args
+        
+        if is_file {
+            script_arg += [command]
+        } else {
+            script_arg += ["-e", command]
+        }
+        if as_sudo {
+            return exec_sudo(binary, script_arg)
+        }
+        return exec(binary, script_arg)
         
     }
     

@@ -211,7 +211,17 @@ class RChecker {
         print(err ?? "")
         
         
-        print("RAVE installation finished.")
+        print("RAVE (main app) installation finished. Downloading utility scripts...")
+        
+        let (cmdScript, suc) = downloader.download(
+            URL(string: "https://raw.githubusercontent.com/beauchamplab/ravecmd/main/download-command.R")!,
+            "rave-download-cmd.R", overwrite: true)
+        
+        if suc {
+            // use R installed to run script
+            _ = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: true)
+            
+        }
     }
     
     

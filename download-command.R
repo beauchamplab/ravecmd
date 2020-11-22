@@ -32,9 +32,12 @@ for(cmdname in cmds){
   cat(sprintf("Check out command `%s` ...", cmdname), end = "\b\b\b\b")
   tryCatch({
     utils::download.file(info$url, target, quiet = TRUE)
-    cat(" =>", target, end = "\n")
+    stopifnot(file.exists(target))
+    cat("    \n  =>", target, end = "\n")
   }, error = function(e){
     cat(" ... (Failed).", end = "\n")
   })
 }
 
+# Change file permission
+system(sprintf('chmod -R 751 %s/rave*', local_path))
