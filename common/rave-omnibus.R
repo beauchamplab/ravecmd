@@ -40,7 +40,7 @@ if(!length(cmd)){
 }
 args <- opt$ARGUMENTS
 
-main_or_preproc <- function(){
+main_or_preproc <- function(args){
   
   if(length(args)){
     args <- sapply(strsplit(args, "=", fixed = TRUE), I, simplify = TRUE)

@@ -223,7 +223,8 @@ class RChecker {
         
         if suc {
             // use R installed to run script
-            _ = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: true)
+            let (out, _) = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: true)
+            print(out ?? "")
         } else {
             print("Error while downloading commands. No internet access? If you are sure you have the access to http://github.com/beauchamplab/ravecmd/ please file an issue.")
         }
@@ -234,7 +235,8 @@ class RChecker {
             "rave-register-path.R", overwrite: true)
         
         if(suc) {
-            _ = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: false)
+            let (out, _) = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: false)
+            print(out ?? "")
         }
         
     }

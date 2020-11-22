@@ -2,7 +2,7 @@
 
 add_sh_profile <- function(path, cmd = 'export PATH=$PATH:/Applications/RAVE/bin'){
   # path <- '.profile'
-  cat("Add RAVE command-line tools to -", path, "\n")
+  cat("\nAdd RAVE command-line tools to -", path, end = "")
   f <- file.path('~/', path)
   if(file.exists(f)){
     s <- readLines(f)
@@ -11,6 +11,7 @@ add_sh_profile <- function(path, cmd = 'export PATH=$PATH:/Applications/RAVE/bin
     }
   }
   s <- c(s, '', cmd, "")
+  cat(" writing...")
   writeLines(s, f)
   invisible()
 }
@@ -23,4 +24,4 @@ add_sh_profile('.zshenv')
 add_sh_profile('.cshrc', 'set path = ( $path /Applications/RAVE/bin )')
 add_sh_profile('.tcshrc', 'set path = ( $path /Applications/RAVE/bin )')
 
-
+cat("\nDone.")
