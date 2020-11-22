@@ -40,7 +40,8 @@ for(cmdname in cmds){
 }
 
 # Change file permission
-system(sprintf('chmod -R 751 %s/rave*', local_path))
+system(sprintf('chmod -R 755 %s/rave*', local_path))
+print("Changing file permission to read-only for outsiders")
 
 # Create command in /usr/local/bin/rave as omnibus command for RAVE
 
