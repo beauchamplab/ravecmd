@@ -1,0 +1,9 @@
+version: "Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)"
+options: "9464ba8b5346d3a18179ca3e9224922d"
+build_time: [1606016610, 196152000]
+inputs:
+  "/Users/beauchamplab/Dropbox/projects/xcode-projects/RAVE Bundled Installer/Utilities/RChecker.swift": [9223372036, 854775807]
+  "/Users/beauchamplab/Dropbox/projects/xcode-projects/RAVE Bundled Installer/Utilities/ConsoleIO.swift": [9223372036, 854775807]
+  "/Users/beauchamplab/Dropbox/projects/xcode-projects/RAVE Bundled Installer/Utilities/Shell.swift": [9223372036, 854775807]
+  "/Users/beauchamplab/Dropbox/projects/xcode-projects/RAVE Bundled Installer/Utilities/FileManagerExt.swift": [9223372036, 854775807]
+  "/Users/beauchamplab/Dropbox/projects/xcode-projects/RAVE Bundled Installer/RAVE Bundled Installer/main.swift": [9223372036, 854775807]
