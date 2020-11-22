@@ -40,14 +40,19 @@ for(cmdname in cmds){
 }
 
 # Change file permission
-system(sprintf('chmod -R 777 %s/rave*', local_path))
+system(sprintf('chmod -R a+x %s/rave*', local_path))
 print("Changing file permission to read-only for outsiders")
 
 # Create command in /usr/local/bin/rave as omnibus command for RAVE
 
 src <- normalizePath(file.path(local_path, "rave"), mustWork = FALSE)
-if(file.exists(src) && os %in% c('darwin', 'linux') && !file.exists("/usr/local/bin/rave")) {
-  file.symlink(src, "/usr/local/bin/rave")
+if(file.exists(src) && os %in% c('darwin', 'linux')) {
+  if(!file.exists("/usr/local/bin/rave")){
+    file.symlink(src, "/usr/local/bin/rave")
+  }
+  if(!file.exists("~/Desktop/rave")){
+    file.symlink(src, "~/Desktop/rave")
+  }
 }
 
 

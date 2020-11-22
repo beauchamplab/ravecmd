@@ -9,7 +9,7 @@ rave-module:
   url: https://raw.githubusercontent.com/beauchamplab/ravecmd/main/common/rave-modules.R
   name: rave-module
 rave:
-  path: rave-omnibus.R
+  path: rave-omnibus
   description: Omnibus command to call RAVE
-  url: https://raw.githubusercontent.com/beauchamplab/ravecmd/main/common/rave-omnibus.R
+  url: https://raw.githubusercontent.com/beauchamplab/ravecmd/main/common/rave-omnibus
   name: rave
