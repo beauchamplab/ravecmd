@@ -17,11 +17,12 @@ add_sh_profile <- function(path, cmd = 'export PATH=$PATH:/Applications/RAVE/bin
 }
 
 # Add files to commandline start-up scripts
+print('1')
 add_sh_profile('.profile')
 add_sh_profile('.bash_profile')
 add_sh_profile('.zshenv')
-
+print('2')
 add_sh_profile('.cshrc', 'set path = ( $path /Applications/RAVE/bin )')
 add_sh_profile('.tcshrc', 'set path = ( $path /Applications/RAVE/bin )')
-
+print('3')
 cat("\nDone.")
