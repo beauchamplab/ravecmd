@@ -1,6 +1,6 @@
 # File to generate yaml 
 
-root_url <- "https://github.com/beauchamplab/ravecmd/raw/master/common/"
+root_url <- "https://raw.githubusercontent.com/beauchamplab/ravecmd/main/common/"
 
 fs <- list.files("common/", recursive = TRUE, all.files = FALSE, full.names = FALSE)
 

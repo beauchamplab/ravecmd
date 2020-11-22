@@ -1,4 +1,4 @@
-#!/usr/local/bin/Rscript
+#!/usr/local/bin/Rscript --no-save --no-restore
 #---
 #name: rave-demo-data
 #description: Download some large files (demo data, template brain, etc)

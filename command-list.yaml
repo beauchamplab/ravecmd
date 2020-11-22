@@ -1,5 +1,5 @@
 rave-demo-data:
   path: demo-data.R
   description: Download some large files (demo data, template brain, etc)
-  url: https://github.com/beauchamplab/ravecmd/raw/master/common/demo-data.R
+  url: https://raw.githubusercontent.com/beauchamplab/ravecmd/main/common/demo-data.R
   name: rave-demo-data
