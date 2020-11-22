@@ -14,9 +14,19 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Update Scripts.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2BC3242D256ADA7E0016E8D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2BF46F8F256A10FA0009BD32</key>
 		<dict>
 			<key>primary</key>

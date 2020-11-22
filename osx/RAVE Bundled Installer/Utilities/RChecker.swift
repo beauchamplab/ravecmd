@@ -213,15 +213,30 @@ class RChecker {
         
         print("RAVE (main app) installation finished. Downloading utility scripts...")
         
-        let (cmdScript, suc) = downloader.download(
+        install_rave_scripts()
+    }
+    
+    func install_rave_scripts() {
+        var (cmdScript, suc) = downloader.download(
             URL(string: "https://raw.githubusercontent.com/beauchamplab/ravecmd/main/download-command.R")!,
             "rave-download-cmd.R", overwrite: true)
         
         if suc {
             // use R installed to run script
             _ = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: true)
-            
+        } else {
+            print("Error while downloading commands. No internet access? If you are sure you have the access to http://github.com/beauchamplab/ravecmd/ please file an issue.")
         }
+        
+        // Add to path
+        (cmdScript, suc) = downloader.download(
+            URL(string: "https://raw.githubusercontent.com/beauchamplab/ravecmd/main/register-path.R")!,
+            "rave-register-path.R", overwrite: true)
+        
+        if(suc) {
+            _ = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: false)
+        }
+        
     }
     
     
@@ -237,6 +252,17 @@ class RChecker {
         return true
     }
     
+    func enable_sudo(exit_if_fails : Bool = true) {
+        if !self.shell.enable_sudo( self.consoleIO ) {
+            if exit_if_fails {
+                print("Aborted.")
+                exit(1)
+            } else {
+                print("Cannot run as Administrator...")
+            }
+        }
+    }
+    
     func ensure_r() {
         if !self.verify_r() {
             print("Cannot detect R installed at /usr/local/bin/ (Do you want to install it?)")
@@ -249,10 +275,7 @@ class RChecker {
             
             // Get Root
             
-            if !self.shell.enable_sudo( self.consoleIO ) {
-                print("Aborted.")
-                exit(1)
-            }
+            self.enable_sudo()
             
             // Install R
             do {

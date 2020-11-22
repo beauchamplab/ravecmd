@@ -3,3 +3,13 @@ rave-demo-data:
   description: Download some large files (demo data, template brain, etc)
   url: https://raw.githubusercontent.com/beauchamplab/ravecmd/main/common/demo-data.R
   name: rave-demo-data
+rave-module:
+  path: rave-modules.R
+  description: Download and update current RAVE modules
+  url: https://raw.githubusercontent.com/beauchamplab/ravecmd/main/common/rave-modules.R
+  name: rave-module
+rave:
+  path: rave-omnibus.R
+  description: Omnibus command to call RAVE
+  url: https://raw.githubusercontent.com/beauchamplab/ravecmd/main/common/rave-omnibus.R
+  name: rave

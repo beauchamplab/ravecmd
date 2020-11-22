@@ -21,9 +21,6 @@ Examples:
   rave-demo-data ravebuiltins threeBrain
 "
 opt <- docopt(doc)
-print(opt)
-
-cat("Installing template brain")
 
 upgrade <- ifelse(opt$skip_if_exist, "never", "always")
 packages <- unlist(opt$PACKAGE)
@@ -57,6 +54,5 @@ while(length(fs)){
   fs <- fs[sel > 0]
   Sys.sleep(1)
 }
-
 
 cat("Finished.\n")
