@@ -45,7 +45,7 @@ system(sprintf('chmod -R 751 %s/rave*', local_path))
 # Create command in /usr/local/bin/rave as omnibus command for RAVE
 
 src <- normalizePath(file.path(local_path, "rave"), mustWork = FALSE)
-if(file.exists(src) && os %in% c('darwin', 'linux')) {
+if(file.exists(src) && os %in% c('darwin', 'linux') && !file.exists("/usr/local/bin/rave")) {
   file.symlink(src, "/usr/local/bin/rave")
 }
 
