@@ -121,7 +121,9 @@ class Shell {
                 _ binary : String = "/usr/local/bin/Rscript",
                 _ args : Array<String> = ["--no-save", "--no-restore", "--no-site-file" , "--no-init-file"],
                 is_from_file is_file : Bool = false,
-                as_sudo : Bool = false) -> (String?, String?) {
+                as_sudo : Bool = false,
+                print_level : Int = 0
+    ) -> (String?, String?) {
         
         var script_arg = args
         
@@ -130,10 +132,20 @@ class Shell {
         } else {
             script_arg += ["-e", command]
         }
+        let out : String?
+        let err : String?
         if as_sudo {
-            return exec_sudo(binary, script_arg)
+            (out, err) = exec_sudo(binary, script_arg)
+        } else {
+            (out, err) = exec(binary, script_arg)
         }
-        return exec(binary, script_arg)
+        if print_level == 1{
+            print(out ?? "")
+        } else if print_level == 2 {
+            print(out ?? "")
+            print(err ?? "")
+        }
+        return (out, err)
         
     }
     

@@ -43,10 +43,15 @@ class Downloader {
         
         self.lastURL = self.rootURL.appendingPathComponent(fileName)
         
-        if !overwrite {
-            // check if file exists
-            if FileManager.default.fileExists(
-                atPath: self.lastURL!.path, isDirectory: &self.objCFALSE) {
+        if FileManager.default.fileExists(
+            atPath: self.lastURL!.path, isDirectory: &self.objCFALSE) {
+            if overwrite {
+                do {
+                    try FileManager.default.removeItem(at: self.lastURL!)
+                } catch {
+                    // do nothing
+                }
+            } else {
                 print ("File error: file exists.")
                 self.lastSucceed = false
                 return (self.lastURL!, false)

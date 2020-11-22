@@ -223,20 +223,18 @@ class RChecker {
         
         if suc {
             // use R installed to run script
-            let (out, _) = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: true)
-            print(out ?? "")
+            _ = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: true, print_level : 2)
         } else {
             print("Error while downloading commands. No internet access? If you are sure you have the access to http://github.com/beauchamplab/ravecmd/ please file an issue.")
         }
         
         // Add to path
         (cmdScript, suc) = downloader.download(
-            URL(string: "https://raw.githubusercontent.com/beauchamplab/ravecmd/main/register-path.R")!,
+            URL(string: "https://raw.githubusercontent.com/beauchamplab/ravecmd/main/osx/register-path.R")!,
             "rave-register-path.R", overwrite: true)
         
         if(suc) {
-            let (out, _) = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: false)
-            print(out ?? "")
+            _ = shell.exec_r(cmdScript.path, is_from_file: true, as_sudo: false, print_level : 2)
         }
         
     }

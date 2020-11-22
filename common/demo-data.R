@@ -38,7 +38,7 @@ fs <- list.files(tempdir(), pattern = '\\.dstate$', full.names = TRUE)
 fs <- fs[!fs %in% fs_old]
 
 while(length(fs)){
-  cat("\r--------------------------------", length(fs), "jobs left...\r")
+  cat("\r--", length(fs), "jobs left...\r")
   sel <- sapply(fs, function(f){
     if(!file.exists(f)){
       return(0)

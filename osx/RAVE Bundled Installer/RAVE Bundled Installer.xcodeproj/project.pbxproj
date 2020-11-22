@@ -19,17 +19,18 @@
 		2BF46FA3256A113E0009BD32 /* FileManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF46F9F256A113E0009BD32 /* FileManagerExt.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2BC32449256B06540016E8D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BF46F88256A10FA0009BD32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BF46F8F256A10FA0009BD32;
+			remoteInfo = "RAVE Bundled Installer";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		2BC3242C256ADA7E0016E8D1 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		2BF46F8E256A10FA0009BD32 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -131,6 +132,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2BC3244A256B06540016E8D1 /* PBXTargetDependency */,
 			);
 			name = "Update Scripts";
 			productName = "Update Scripts";
@@ -143,7 +145,6 @@
 			buildPhases = (
 				2BF46F8C256A10FA0009BD32 /* Sources */,
 				2BF46F8D256A10FA0009BD32 /* Frameworks */,
-				2BF46F8E256A10FA0009BD32 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -216,6 +217,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2BC3244A256B06540016E8D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BF46F8F256A10FA0009BD32 /* RAVE Bundled Installer */;
+			targetProxy = 2BC32449256B06540016E8D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2BC32433256ADA7E0016E8D1 /* Debug */ = {
