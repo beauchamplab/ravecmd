@@ -1,16 +1,44 @@
-#!/usr/local/bin/Rscript --no-save --no-restore
+#!/usr/bin/env -S Rscript --no-restore --no-save
 #---
 #name: rave-demo-data
 #description: Download some large files (demo data, template brain, etc)
 #---
 
+library(docopt)
+
+## configuration for docopt
+doc <- "Usage: rave-demo-data [-h] [-s] [PACKAGE ...]
+
+-h --help           show this help text
+-s --skip-if-exist  whether to skip if data exists to save time
+
+Description: 
+  Finalizes installation for given RAVE module packages.
+
+Examples:
+  rave-demo-data -h
+  rave-demo-data -s .
+  rave-demo-data ravebuiltins threeBrain
+"
+opt <- docopt(doc)
+print(opt)
+
 cat("Installing template brain")
 
-rave::finalize_installation(upgrade = 'always')
+upgrade <- ifelse(opt$skip_if_exist, "never", "always")
+packages <- unlist(opt$PACKAGE)
 
-Sys.sleep(10)
+fs_old <- list.files(tempdir(), pattern = '\\.dstate$', full.names = TRUE)
+
+if(length(packages)){
+  rave::finalize_installation(packages, upgrade = upgrade)
+} else {
+  rave::finalize_installation(upgrade = upgrade)
+}
+Sys.sleep(3)
 
 fs <- list.files(tempdir(), pattern = '\\.dstate$', full.names = TRUE)
+fs <- fs[!fs %in% fs_old]
 
 while(length(fs)){
   cat("\n--------------------------------", length(fs), "jobs left...\n")

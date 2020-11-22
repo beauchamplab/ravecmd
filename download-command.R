@@ -22,10 +22,19 @@ local_path <- switch(
 
 cmds <- names(cmdlist)
 
+if(!dir.exists(local_path)) {
+  dir.create(local_path, recursive = TRUE)
+}
+
 for(cmdname in cmds){
   info <- cmdlist[[cmdname]]
+  target <- file.path(local_path, cmdname)
+  cat(sprintf("Check out command `%s` ...", cmdname), end = "\b\b\b\b")
   tryCatch({
-    utils::download.file(info$url)
+    utils::download.file(info$url, target, quiet = TRUE)
+    cat(" =>", target, end = "\n")
+  }, error = function(e){
+    cat(" ... (Failed).", end = "\n")
   })
 }
 

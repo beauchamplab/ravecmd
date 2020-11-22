@@ -188,6 +188,8 @@ class RChecker {
         shell.install_cran(cran_package: "threeBrain", into: lib_path, false)
         shell.install_cran(cran_package: "raveio", into: lib_path, false)
         shell.install_cran(cran_package: "lazyarray", into: lib_path, true)
+        shell.install_cran(cran_package: "docopt", into: lib_path, false)
+        
         
         // install github packages
         shell.install_github(github_package: "dipterix/dipsaus", into: lib_path, true)
