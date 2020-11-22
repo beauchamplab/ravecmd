@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,22 +12,13 @@
 		2BC3243E256ADB0E0016E8D1 /* FileManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF46F9F256A113E0009BD32 /* FileManagerExt.swift */; };
 		2BC3243F256ADB0E0016E8D1 /* RChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF46F9E256A113D0009BD32 /* RChecker.swift */; };
 		2BC32440256ADB0E0016E8D1 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF46F9C256A113D0009BD32 /* Shell.swift */; };
+		2BC32459256B12DC0016E8D1 /* Update Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 2BC3242E256ADA7E0016E8D1 /* Update Scripts */; };
 		2BF46F94256A10FA0009BD32 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF46F93256A10FA0009BD32 /* main.swift */; };
 		2BF46FA0256A113E0009BD32 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF46F9C256A113D0009BD32 /* Shell.swift */; };
 		2BF46FA1256A113E0009BD32 /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF46F9D256A113D0009BD32 /* ConsoleIO.swift */; };
 		2BF46FA2256A113E0009BD32 /* RChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF46F9E256A113D0009BD32 /* RChecker.swift */; };
 		2BF46FA3256A113E0009BD32 /* FileManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF46F9F256A113E0009BD32 /* FileManagerExt.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2BC32449256B06540016E8D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BF46F88256A10FA0009BD32 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BF46F8F256A10FA0009BD32;
-			remoteInfo = "RAVE Bundled Installer";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2BC3242C256ADA7E0016E8D1 /* CopyFiles */ = {
@@ -132,7 +123,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2BC3244A256B06540016E8D1 /* PBXTargetDependency */,
 			);
 			name = "Update Scripts";
 			productName = "Update Scripts";
@@ -145,6 +135,7 @@
 			buildPhases = (
 				2BF46F8C256A10FA0009BD32 /* Sources */,
 				2BF46F8D256A10FA0009BD32 /* Frameworks */,
+				2BC32458256B12D60016E8D1 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -161,8 +152,10 @@
 		2BF46F88256A10FA0009BD32 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
+				ORGANIZATIONNAME = Beauchamplab;
 				TargetAttributes = {
 					2BC3242D256ADA7E0016E8D1 = {
 						CreatedOnToolsVersion = 12.2;
@@ -191,6 +184,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		2BC32458256B12D60016E8D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC32459256B12DC0016E8D1 /* Update Scripts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2BC3242A256ADA7E0016E8D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -218,14 +222,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2BC3244A256B06540016E8D1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BF46F8F256A10FA0009BD32 /* RAVE Bundled Installer */;
-			targetProxy = 2BC32449256B06540016E8D1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		2BC32433256ADA7E0016E8D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -234,6 +230,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9D3246MZK8;
 				ENABLE_HARDENED_RUNTIME = YES;
+				INSTALL_PATH = /RAVE;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.beauchamplab.rave-script-update";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -248,7 +245,8 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9D3246MZK8;
 				ENABLE_HARDENED_RUNTIME = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.beauchamplab.rave-script-update";
+				INSTALL_PATH = /RAVE;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.beauchamplab.rave-update-scripts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -288,9 +286,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "RAVE Bundled Installer/RAVE Bundled Installer.entitlements";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DSTROOT = "$(SRCROOT)/build/pkgroot";
+				DSTROOT = $SRCROOT/build/pkgroot;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -352,9 +351,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "RAVE Bundled Installer/RAVE Bundled Installer.entitlements";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DSTROOT = "$(SRCROOT)/build/pkgroot";
+				DSTROOT = $SRCROOT/build/pkgroot;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

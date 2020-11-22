@@ -20,6 +20,20 @@
                ReferencedContainer = "container:RAVE Bundled Installer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2BF46F8F256A10FA0009BD32"
+               BuildableName = "RAVE Bundled Installer"
+               BlueprintName = "RAVE Bundled Installer"
+               ReferencedContainer = "container:RAVE Bundled Installer.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

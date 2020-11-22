@@ -3,9 +3,12 @@ source "./osx/credential.sh"
 PROJDIR="osx/RAVE Bundled Installer/"
 PKGNAME="rave-bundled-installer"
 PKGVER=$(Rscript --no-save -e "cat(rave::rave_version())")
-BID="org.beauchamplab.rave-installer"
+BID="org.beauchamplab.rave-bundled-installer"
 
 echo "Building rave-$PKGVER"
+
+xcodebuild -project "$PROJDIR/RAVE Bundled Installer.xcodeproj" -alltargets clean install
+ls "$PROJDIR/build/pkgroot/RAVE"
 
 pkgbuild --root "$PROJDIR/build/pkgroot" \
            --identifier "$BID" \
@@ -13,6 +16,7 @@ pkgbuild --root "$PROJDIR/build/pkgroot" \
            --install-location "/Applications/" \
            --sign "$AU_CERT_INST" \
            "$PROJDIR/build/$PKGNAME-$PKGVER.pkg"
+
 
 request=$(xcrun altool --notarize-app \
                --primary-bundle-id "$BID" \
@@ -22,6 +26,7 @@ request=$(xcrun altool --notarize-app \
                --file "$PROJDIR/build/$PKGNAME-$PKGVER.pkg")
                
 UUID=$(echo $request | grep -o --max-count=1 "[0-9a-z]\{8\}-[0-9a-z]\{4\}-[0-9a-z]\{4\}-[0-9a-z]\{4\}-[0-9a-z]\{12\}")
+echo $UUID
 
 xcrun altool --notarization-info $UUID -u "$AU_USRENAME" -p "$AU_PASSWORD"
 

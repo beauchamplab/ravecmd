@@ -21,7 +21,7 @@ if !rchecker.shell.validate_sudo() {
 rchecker.install_rave_scripts()
 
 
-rchecker.shell.exec("/usr/bin/open", ["/Applications/RAVE/bin"])
+_ = rchecker.shell.exec("/usr/bin/open", ["/Applications/RAVE/bin"])
 
 
 
